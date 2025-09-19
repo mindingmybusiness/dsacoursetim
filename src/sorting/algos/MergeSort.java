@@ -9,20 +9,22 @@ public class MergeSort {
 			System.out.print(array[i] + " ");
 		}
 	}
-
-	public static void mergeSort(int[] array, int start, int end) {
+ /*
+  * Recursion is a little hectic to understand
+  */
+	public static void mergeSort(int[] input, int start, int end) {
 		if (end - start < 2) {
 			return;
 		}
 
 		int mid = (start + end) / 2;	
-		mergeSort(array, start, mid);
-		mergeSort(array, mid, end);
-		merge(array, start, mid, end);
+		mergeSort(input, start, mid);
+		mergeSort(input, mid, end);
+		merge(input, start, mid, end);
 	}
 
-	public static void merge(int[] array, int start, int mid, int end) {
-		if(array[mid-1] <= array[mid]) {
+	public static void merge(int[] input, int start, int mid, int end) {
+		if(input[mid-1] <= input[mid]) {
 			return;
 		}
 		int i=start;
@@ -31,10 +33,10 @@ public class MergeSort {
 		
 		int[] temp = new int[end-start];
 		while(i< mid && j<end) {
-			temp[tempIndex++] = array[i]<=array[j]?array[i++]:array[j++];
+			temp[tempIndex++] = input[i]<=input[j]?input[i++]:input[j++];
 		}
 		
-		System.arraycopy(array, i, array, start + tempIndex, mid-i);
-		System.arraycopy(temp, 0, array, start, tempIndex);
+		System.arraycopy(input, i, input, start + tempIndex, mid-i);
+		System.arraycopy(temp, 0, input, start, tempIndex);
 	}
 }
