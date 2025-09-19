@@ -3,7 +3,7 @@ package sorting.algos;
 public class MergeSort {
 
 	public static void main(String[] args) {
-		int[] array = { 20, 35, -15, 7, 55, 1, -22 };
+		int[] array = { 20, 35, -15, 7, 55, 1, -22, 70 };
 		mergeSort(array, 0, array.length);
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
@@ -15,7 +15,7 @@ public class MergeSort {
 			return;
 		}
 
-		int mid = (start + end) / 2;
+		int mid = (start + end) / 2;	
 		mergeSort(array, start, mid);
 		mergeSort(array, mid, end);
 		merge(array, start, mid, end);
