@@ -23,6 +23,7 @@ public class FactorialRecursion {
 			return 1;
 		}
 		int factorial = num*recursiveFactorial(num-1);
+		System.out.println(num);
 		return factorial;
 	}
 
